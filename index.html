@@ -23,31 +23,6 @@ const NavLink = ({ item }) => {
   // Nếu không có subItems, render link đơn giản
   if (!item.subItems) {
     return (
-      <aimport React, { useState } from 'react';
-import { Menu, X, Home, Calendar, Phone, Info, ChevronDown } from 'lucide-react';
-
-// Dữ liệu menu và nội dung
-const NAV_ITEMS = [
-  { name: 'Trang Chủ', icon: Home, link: '#home' },
-  { name: 'Giới Thiệu', icon: Info, link: '#about' },
-  { name: 'Sự Kiện', icon: Calendar, link: '#events' },
-  { name: 'Dịch Vụ', icon: ChevronDown, link: '#services', subItems: [
-    { name: 'Tư Vấn', link: '#consulting' },
-    { name: 'Thiết Kế', link: '#design' },
-    { name: 'Phát Triển', link: '#development' },
-  ]},
-  { name: 'Liên Hệ', icon: Phone, link: '#contact' },
-];
-
-/**
- * Component NavLink: Hiển thị một mục menu đơn
- */
-const NavLink = ({ item }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Nếu không có subItems, render link đơn giản
-  if (!item.subItems) {
-    return (
       <a
         href={item.link}
         className="flex items-center space-x-2 p-3 text-lg md:text-sm font-medium text-white hover:bg-white/10 transition duration-200 rounded-lg group"
@@ -437,5 +412,32 @@ const App = () => {
         }
       `}</style>
 
-      
- 
+      <Header />
+
+      <main>
+        <HeroSection />
+        <FeatureSection />
+        <EventSection />
+        {/* Placeholder section for "Giới Thiệu" and "Dịch Vụ" */}
+        <section id="about" className="py-16 bg-white border-t border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Về Chúng Tôi</h2>
+                <p className="text-gray-600 max-w-3xl mx-auto">Chúng tôi là đội ngũ chuyên gia công nghệ, tận tâm xây dựng các sản phẩm số chất lượng cao, thúc đẩy sự phát triển của khách hàng bằng đổi mới sáng tạo.</p>
+            </div>
+        </section>
+        <section id="services" className="py-16 bg-gray-50 border-t border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Các Dịch Vụ Khác</h2>
+                <p className="text-gray-600 max-w-3xl mx-auto">Ngoài các tính năng chính, chúng tôi còn cung cấp các dịch vụ chuyên sâu như Tư vấn Kiến trúc Hệ thống, Tối ưu hóa Hiệu suất và Đào tạo Kỹ thuật.</p>
+            </div>
+        </section>
+
+        <ContactSection />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
